@@ -15,8 +15,6 @@ jobs:
 
     - name: Use Node.js 16.x
       uses: actions/setup-node@v3.4.1
-      with:
-        node-version: 10.x
 
     - name: Prepare and deploy
       env:
