@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { DataService } from './../data.service'
 
 @Component({
   selector: 'app-color-list',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./color-list.component.css']
 })
 export class ColorListComponent {
-  list: {"cause":string, "htmlcolor":string}[] =[{"cause":"Breast Cancer","htmlcolor":"pink"},{"cause":"Birth Parents","htmlcolor":"pink"},{"cause":"Nursing Mothers","htmlcolor":"pink"}]
+  constructor(private data: DataService) { }
+
+  list = this.data.getList()
+
+  
 }
