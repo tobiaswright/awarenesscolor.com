@@ -1,6 +1,10 @@
-<ul>
-    <li *ngFor ="let item of list">
-        <app-color-card [cause]="item.cause" [htmlcolor]="item.htmlcolor"></app-color-card>
-    </li>
+
+<ul class="list-group">
+    <ng-container  *ngFor ="let item of list">
+        <li class="list-group-item" [style.background-color]='item.htmlcolor'>
+            <app-color-card [cause]="item.cause" [htmlcolor]="item.htmlcolor"></app-color-card>
+        </li>
+    </ng-container>
+
 </ul>
 
