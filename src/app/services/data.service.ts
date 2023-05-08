@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, } from '@angular/core';
 import data from '../../assets/data.json'
 
 @Injectable({

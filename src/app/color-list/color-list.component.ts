@@ -6,10 +6,12 @@ import { DataService } from './../services/data.service'
   templateUrl: './color-list.component.html',
   styleUrls: ['./color-list.component.css']
 })
-export class ColorListComponent {
+export class ColorListComponent implements OnInit {
+  list: { cause: string; htmlcolor: string; }[] = [];
+
   constructor(private data: DataService) { }
 
-  list = this.data.getList()
-
-  
+  ngOnInit(): void {
+    this.list = this.data.getList()
+  }
 }
