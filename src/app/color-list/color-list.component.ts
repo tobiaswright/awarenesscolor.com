@@ -7,11 +7,11 @@ import { DataService } from './../services/data.service'
   styleUrls: ['./color-list.component.css']
 })
 export class ColorListComponent implements OnInit {
-  list: { cause: string; htmlcolor: string; }[] = [];
+  list: { cause: string; htmlcolor: string; colorData: { htmlName: string; displayName: string; hexCode: string} }[] = [];
 
   constructor(private data: DataService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.list = this.data.getList()
   }
 }
