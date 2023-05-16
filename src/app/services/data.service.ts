@@ -15,8 +15,17 @@ export class DataService {
   constructor() {
 
     //think about create this in to a service
+    // this.data = this.data.sort
+
+    let sortedData = this.data.slice(0);
+    sortedData.sort(function(a,b) {
+	var x = a.cause.toLowerCase();
+	var y = b.cause.toLowerCase();
+	return x < y ? -1 : x > y ? 1 : 0;
+});
+
     this.createMap();
-    this.newdata = this.combineData();
+    this.newdata = this.combineData(sortedData);
   }
 
 
@@ -27,13 +36,12 @@ export class DataService {
 
   private createMap(): void {
     colorData.forEach(item => {
-
       this.map.set(item.name, {...item})
     })
   }
 
-  private combineData() {
-   return this.data.map( item => {
+  private combineData(data: any[]) {
+   return data.map( (item: { htmlcolor: string; }) => {
       let colorArry = item.htmlcolor.split(",")
       
       if ( colorArry.length === 1) {

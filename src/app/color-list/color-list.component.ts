@@ -18,15 +18,7 @@ interface colorShapeo {
 })
 
 export class ColorListComponent implements OnInit {
-  list: {
-    cause: string,
-    htmlcolor: string,
-    colorData: {
-     displayName: string,
-     htmlName: string[] | string,
-     hexCode: string[] | string,
-     multi: boolean}
-   }[] = [];
+  list: any[] = [];
    
 
   constructor(private data: DataService) { }
