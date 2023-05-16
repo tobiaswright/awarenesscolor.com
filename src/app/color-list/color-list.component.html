@@ -1,9 +1,13 @@
 
 <ul class="list-group">
     <ng-container  *ngFor ="let item of list">
-        <li class="list-group-item" [style.background-color]='item.htmlcolor'>
-            <app-color-card [cause]="item.cause" [htmlcolor]="item.htmlcolor"></app-color-card>
+        
+        <li class="list-group-item" [style]="calculateStyles({item})">
+            <app-color-card [cause]="item.cause" [displayName]="item.colorData.displayName"></app-color-card>
         </li>
     </ng-container>
 </ul>
 
+<!--
+     <li class="list-group-item" [ngStyle] = "{background: 'linear-gradient(45deg, red, black)'}">
+ -->

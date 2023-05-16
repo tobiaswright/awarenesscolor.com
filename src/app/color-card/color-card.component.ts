@@ -6,8 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./color-card.component.css']
 })
 export class ColorCardComponent {
-  @Input() cause:string = "pink"
-  @Input() htmlcolor:string ="pink"
+  @Input() cause:string = ""
+  @Input() displayName:string =""
   constructor() { }
 
 
