@@ -50,7 +50,7 @@ export class DataService {
         return {...item, colorData: newColorData}
       } else {
         return {
-          ...item, colorData: {htmlName: colorArry, displayName: item.htmlcolor, hexCode: [this.map.get(colorArry[0])?.hexCode, this.map.get(colorArry[1])?.hexCode], multi: true}
+          ...item, colorData: {htmlName: colorArry, displayName: this.map.get(colorArry[0])?.displayName + ", " + this.map.get(colorArry[1])?.displayName, hexCode: [this.map.get(colorArry[0])?.hexCode, this.map.get(colorArry[1])?.hexCode], multi: true}
       }
     }
     }) 
