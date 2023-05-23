@@ -7,13 +7,17 @@ import { ColorCardComponent } from './color-card/color-card.component';
 import { ColorListComponent } from './color-list/color-list.component';
 import { DataService } from './services/data.service';
 import { SwatchComponent } from './swatch/swatch.component';
+import { FilterComponent } from './filter/filter.component';
+import { IntroComponent } from './intro/intro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ColorCardComponent,
     ColorListComponent,
-    SwatchComponent
+    SwatchComponent,
+    FilterComponent,
+    IntroComponent
   ],
   imports: [
     BrowserModule,
