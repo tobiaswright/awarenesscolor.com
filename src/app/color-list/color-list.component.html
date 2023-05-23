@@ -1,5 +1,5 @@
 
-<div class="card" style="margin-bottom: 10px;" *ngFor ="let item of list">
+<div style="margin-bottom: 20px;" *ngFor ="let item of list">
+    <app-swatch [colorData]="item.colorData"></app-swatch>
     <app-color-card [cause]="item.cause" [displayName]="item.colorData.displayName"></app-color-card>
-    <div class="card-body" [style]="calculateStyles({item})"></div>
 </div>

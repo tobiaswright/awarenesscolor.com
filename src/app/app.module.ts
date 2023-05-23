@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ColorCardComponent } from './color-card/color-card.component';
 import { ColorListComponent } from './color-list/color-list.component';
 import { DataService } from './services/data.service';
+import { SwatchComponent } from './swatch/swatch.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ColorCardComponent,
-    ColorListComponent
+    ColorListComponent,
+    SwatchComponent
   ],
   imports: [
     BrowserModule,

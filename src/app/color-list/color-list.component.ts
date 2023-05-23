@@ -27,10 +27,4 @@ export class ColorListComponent implements OnInit {
     this.list = this.data.getList()
   }
 
-  calculateStyles(item: any) {
-    if (item.item.colorData.multi) {
-      return 'background: linear-gradient(45deg,' + item.item.colorData.hexCode[0] +',' + item.item.colorData.hexCode[1]+')'
-    }
-    return 'background-color:' + item.item.colorData.hexCode
-  }
 }
