@@ -19,6 +19,7 @@ interface colorShapeo {
 
 export class ColorListComponent implements OnInit {
   list: any[] = [];
+  filterBy: any;
    
 
   constructor(private data: DataService) { }

@@ -9,6 +9,8 @@ import { DataService } from './services/data.service';
 import { SwatchComponent } from './swatch/swatch.component';
 import { FilterComponent } from './filter/filter.component';
 import { IntroComponent } from './intro/intro.component';
+import { FilterPipe } from './filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,13 @@ import { IntroComponent } from './intro/intro.component';
     ColorListComponent,
     SwatchComponent,
     FilterComponent,
-    IntroComponent
+    IntroComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
