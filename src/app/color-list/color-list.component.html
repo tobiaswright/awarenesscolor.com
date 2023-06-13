@@ -1,5 +1,5 @@
 
-<input class="form-control form-control-lg" type="text" placeholder="Search causes" aria-label=".form-control-lg example" [(ngModel)]="filterBy">
+<input class="form-control form-control-lg" type="text" placeholder="Filter causes" aria-label=".form-control-lg example" [(ngModel)]="filterBy">
 
 <div style="margin-bottom: 20px;" *ngFor ="let item of list | filter: filterBy:'cause'">
     <app-swatch [colorData]="item.colorData"></app-swatch>
