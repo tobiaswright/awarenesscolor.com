@@ -7,7 +7,6 @@ import { ColorCardComponent } from './color-card/color-card.component';
 import { ColorListComponent } from './color-list/color-list.component';
 import { DataService } from './services/data.service';
 import { SwatchComponent } from './swatch/swatch.component';
-import { FilterComponent } from './filter/filter.component';
 import { IntroComponent } from './intro/intro.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
@@ -18,7 +17,6 @@ import { FormsModule } from '@angular/forms';
     ColorCardComponent,
     ColorListComponent,
     SwatchComponent,
-    FilterComponent,
     IntroComponent,
     FilterPipe
   ],
