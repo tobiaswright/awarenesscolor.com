@@ -10,6 +10,7 @@ import { SwatchComponent } from './swatch/swatch.component';
 import { IntroComponent } from './intro/intro.component';
 import { FilterPipe } from './filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule } from '@angular/forms';
     ColorListComponent,
     SwatchComponent,
     IntroComponent,
-    FilterPipe
+    FilterPipe,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

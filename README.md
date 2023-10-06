@@ -1,4 +1,4 @@
-# ColorAwareness
+# Color Awareness
 
 This is the frontend side project to play with angular.
 
