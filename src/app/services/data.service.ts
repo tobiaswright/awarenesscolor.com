@@ -10,22 +10,24 @@ export class DataService {
   newdata
   data = data
   colorData = colorData
-  map = new Map()
 
   constructor() {
 
     //think about create this in to a service
     // this.data = this.data.sort
 
+    //copies the data?
     let sortedData = this.data.slice(0);
+   
     sortedData.sort(function(a,b) {
-	var x = a.cause.toLowerCase();
-	var y = b.cause.toLowerCase();
-	return x < y ? -1 : x > y ? 1 : 0;
-});
+	    let x = a.cause.toLowerCase();
+	    let y = b.cause.toLowerCase();
+      return x.localeCompare(y)
+    });
 
-    this.createMap();
-    this.newdata = this.combineData(sortedData);
+    let map = this.createMap(colorData);
+
+    this.newdata = this.combineData(sortedData, map);
   }
 
 
@@ -34,23 +36,25 @@ export class DataService {
   }
 
 
-  private createMap(): void {
-    colorData.forEach(item => {
-      this.map.set(item.name, {...item})
+  private createMap(array: any[]) {
+    let map = new Map()
+    array.forEach(item => {
+      map.set(item.name, {...item})
     })
+    return map
   }
 
-  private combineData(data: any[]) {
+  private combineData(data: any[], map: Map<any, any>) {
    return data.map( (item: { htmlcolor: string; }) => {
       let colorArry = item.htmlcolor.split(",")
       
       if ( colorArry.length === 1) {
-        let colorData  = this.map.get(item.htmlcolor)
+        let colorData  = map.get(item.htmlcolor)
         let newColorData = {...colorData, multi:false}
         return {...item, colorData: newColorData}
       } else {
         return {
-          ...item, colorData: {htmlName: colorArry, displayName: this.map.get(colorArry[0])?.displayName + ", " + this.map.get(colorArry[1])?.displayName, hexCode: [this.map.get(colorArry[0])?.hexCode, this.map.get(colorArry[1])?.hexCode], multi: true}
+          ...item, colorData: {htmlName: colorArry, displayName: map.get(colorArry[0])?.displayName + ", " + map.get(colorArry[1])?.displayName, hexCode: [map.get(colorArry[0])?.hexCode, map.get(colorArry[1])?.hexCode], multi: true}
       }
     }
     }) 
