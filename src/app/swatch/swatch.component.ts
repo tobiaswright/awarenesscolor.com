@@ -20,7 +20,10 @@ export class SwatchComponent implements OnInit {
 
   calculateStyles(item: any) {
     if (item.colorData.multi) {
-      return 'background: linear-gradient(45deg,' + item.colorData.hexCode[0] +',' + item.colorData.hexCode[1]+')'
+      let gradient = item.colorData.hexCode.reduce( (acc: string, curr: string) => {
+        return acc + "," + curr
+      })
+      return 'background: linear-gradient(45deg,' + gradient +')'
     }
     return 'background-color:' + item.colorData.hexCode
   }

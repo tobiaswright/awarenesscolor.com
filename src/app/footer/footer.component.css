@@ -1,0 +1,13 @@
+p {
+    margin:3em 0 2em 0;
+    color: silver
+}
+
+a {
+    color: grey;
+    text-decoration : none
+}
+
+a:hover {
+    text-decoration: underline;
+}
