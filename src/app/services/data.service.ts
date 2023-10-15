@@ -35,6 +35,10 @@ export class DataService {
     return this.newdata
   }
 
+  getColor() {
+    return this.getRandomColor(this.newdata)
+  }
+
 
   private createMap(array: any[]) {
     let map = new Map()
@@ -58,5 +62,15 @@ export class DataService {
       }
     }
     }) 
+  }
+
+  private getRandomColor( array: any[] ) {
+    let color = array[Math.floor(Math.random() * array.length)]
+
+    if (!color.colorData.multi && color.htmlcolor !== "white") {
+      return color.htmlcolor;
+    } else {
+      this.getRandomColor( this.newdata )
+    }
   }
 }
