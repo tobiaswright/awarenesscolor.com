@@ -31,8 +31,10 @@ export class ColorListComponent implements OnInit {
 
   truncateLongNames() {
     this.list.forEach( item => {
+      item.causeFull = item.cause
       if ( item.cause.length > 15 ) {
         item.cause = item.cause.slice(0,15) + "..."
+
       }
     })
   }

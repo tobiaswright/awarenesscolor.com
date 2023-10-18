@@ -35,11 +35,6 @@ export class DataService {
     return this.newdata
   }
 
-  getColor() {
-    return this.getRandomColor(this.newdata)
-  }
-
-
   private createMap(array: any[]) {
     let map = new Map()
     array.forEach(item => {
@@ -60,7 +55,7 @@ export class DataService {
     return combinedData
   }
 
-  private buildColorData( item: string | any[string], map: { get: (arg0: any) => { (): any; new(): any; displayName: string; hexCode: any; }; } ) {
+  private buildColorData( item: any[string], map: { get: (arg0: any) => { (): any; new(): any; displayName: string; hexCode: any; }; } ) {
     let displayName = "";
     let hexCode = [];
 
@@ -85,16 +80,6 @@ export class DataService {
     return {
       ...map.get(item[0]),
       multi:false
-    }
-  }
-
-  private getRandomColor( array: any[] ) {
-    let color = array[Math.floor(Math.random() * array.length)]
-
-    if (!color.colorData.multi && color.htmlcolor !== "white") {
-      return color.htmlcolor;
-    } else {
-      this.getRandomColor( this.newdata )
     }
   }
 }

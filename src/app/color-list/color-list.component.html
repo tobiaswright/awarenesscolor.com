@@ -2,7 +2,7 @@
 <input class="form-control form-control-lg" type="text" placeholder="Filter causes" aria-label=".form-control-lg example" [(ngModel)]="filterBy">
 
 <div class="row">
-    <div class="col-4 swatches" style="margin-bottom: 10px;" *ngFor ="let item of list | filter: filterBy:'cause'">
+    <div class="col-4 swatches" [title]="item.causeFull" style="margin-bottom: 10px;" *ngFor ="let item of list | filter: filterBy:'cause'">
         <app-swatch [colorData]="item.colorData"></app-swatch>
         <app-color-card [cause]="item.cause" [displayName]="item.colorData.displayName"></app-color-card>
     </div>
