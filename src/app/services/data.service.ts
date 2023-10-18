@@ -49,19 +49,43 @@ export class DataService {
   }
 
   private combineData(data: any[], map: Map<any, any>) {
-   return data.map( (item: { htmlcolor: string; }) => {
+   let combinedData =  data.map( (item) => {
       let colorArry = item.htmlcolor.split(",")
-      
-      if ( colorArry.length === 1) {
-        let colorData  = map.get(item.htmlcolor)
-        let newColorData = {...colorData, multi:false}
-        return {...item, colorData: newColorData}
-      } else {
-        return {
-          ...item, colorData: {htmlName: colorArry, displayName: map.get(colorArry[0])?.displayName + ", " + map.get(colorArry[1])?.displayName, hexCode: [map.get(colorArry[0])?.hexCode, map.get(colorArry[1])?.hexCode], multi: true}
+       return {
+        ...item,
+        colorData: this.buildColorData(colorArry, map)
       }
+    })
+
+    return combinedData
+  }
+
+  private buildColorData( item: string | any[string], map: { get: (arg0: any) => { (): any; new(): any; displayName: string; hexCode: any; }; } ) {
+    let displayName = "";
+    let hexCode = [];
+
+    if (item.length > 1) {
+      for ( let i=0; i<item.length; i++) {
+        displayName += map.get(item[i]).displayName
+        hexCode.push(map.get(item[i]).hexCode)
+
+        if ( item.length - 1 > i) {
+          displayName += ", "
+        }
+      }
+
+      return {
+          htmlName: item,
+          displayName: displayName,
+          hexCode:hexCode,
+          multi: true
+        }
     }
-    }) 
+ 
+    return {
+      ...map.get(item[0]),
+      multi:false
+    }
   }
 
   private getRandomColor( array: any[] ) {
