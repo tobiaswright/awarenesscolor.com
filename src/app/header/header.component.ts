@@ -12,8 +12,17 @@ export class HeaderComponent implements OnInit {
   constructor(private data: DataService) {}
 
   ngOnInit(): void {
-    this.color = this.data.getColor()
-    console.log("hello",this.color, this.data.getColor())
+    this.color = this.getRandomColor(this.data.getList() );
+  }
+
+  private getRandomColor( array: any[] ) {
+    let color = array[Math.floor(Math.random() * array.length)]
+
+    if (!color.colorData.multi && color.htmlcolor !== "white") {
+      return color.htmlcolor;
+    } else {
+      this.getRandomColor( array )
+    }
   }
   
 }
