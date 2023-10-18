@@ -26,15 +26,17 @@ export class ColorListComponent implements OnInit {
 
   ngOnInit() {
     this.list = this.data.getList()
-    this.truncateLongNames()
+    this.truncateLongNamesAddTitle()
   }
 
-  truncateLongNames() {
+  truncateLongNamesAddTitle() {
     this.list.forEach( item => {
-      item.causeFull = item.cause
+      if ( item.causeFull === "") {
+        item.causeFull = item.cause
+      }
+      
       if ( item.cause.length > 15 ) {
         item.cause = item.cause.slice(0,15) + "..."
-
       }
     })
   }
