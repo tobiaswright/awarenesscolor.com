@@ -25,20 +25,25 @@ export class ColorListComponent implements OnInit {
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.list = this.data.getList()
-    this.truncateLongNamesAddTitle()
+    this.list = this.data.getList();
+    this.AddToolTips();
+    this.truncateLongNames();
   }
 
-  truncateLongNamesAddTitle() {
+  private truncateLongNames() {
     this.list.forEach( item => {
-      if ( item.causeFull === "") {
-        item.causeFull = item.cause
-      }
-      
-      if ( item.cause.length > 15 ) {
-        item.cause = item.cause.slice(0,15) + "..."
+      if ( item.cause.length > 22 ) {
+        item.cause = item.cause.slice(0,22) + "..."
       }
     })
+  }
+
+  private AddToolTips() {
+    this.list.forEach( item => {
+    if ( item.causeFull === "") {
+      item.causeFull = item.cause
+    }
+  })
   }
 
 }
