@@ -1,7 +1,8 @@
 input {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .swatches {
-    font-size: .9em
+    font-size: .9em;
+    margin-bottom: 10px
 }
