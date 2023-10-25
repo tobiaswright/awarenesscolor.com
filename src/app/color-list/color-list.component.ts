@@ -28,6 +28,7 @@ export class ColorListComponent implements OnInit {
     this.list = this.data.getList();
     this.AddToolTips();
     this.truncateLongNames();
+    
   }
 
   private truncateLongNames() {
@@ -45,5 +46,7 @@ export class ColorListComponent implements OnInit {
     }
   })
   }
+
+  
 
 }

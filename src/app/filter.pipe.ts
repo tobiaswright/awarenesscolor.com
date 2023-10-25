@@ -11,18 +11,15 @@ export class FilterPipe implements PipeTransform {
       return value;
     }
 
-    
-
     let filteredCause: any[] = [];
-for (let item of value) {
-  if (item[property].toLowerCase().includes(filterString.toLowerCase())) {
-    filteredCause.push(item);
-  }
-}
+    for (let item of value) {
+      if (item[property].toLowerCase().includes(filterString.toLowerCase())) {
+        filteredCause.push(item);
+      }
+    }
 
-console.log(filteredCause)
-return filteredCause;
-    // return null;
+    return filteredCause;
+
   }
 
 }
