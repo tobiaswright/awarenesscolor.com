@@ -1,5 +1,7 @@
 # Color Awareness
 
+Welcome to [Awareness Color](https://wwww.awarenesscolor.com)
+
 This is the frontend side project to play with angular.
 
 The data is pulled from [this github](https://github.com/tobiaswright/awareness-color-data).
