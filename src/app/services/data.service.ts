@@ -8,6 +8,7 @@ import colorData from '../../assets/color-map.json'
 })
 export class DataService {
   newdata
+  map
   data = data
   colorData = colorData
 
@@ -25,14 +26,18 @@ export class DataService {
       return x.localeCompare(y)
     });
 
-    let map = this.createMap(colorData);
+    this.map = this.createMap(colorData);
 
-    this.newdata = this.combineData(sortedData, map);
+    this.newdata = this.combineData(sortedData, this.map);
   }
 
 
   getList(){
     return this.newdata
+  }
+
+  getMap(){
+    return this.map
   }
 
   private createMap(array: any[]) {
