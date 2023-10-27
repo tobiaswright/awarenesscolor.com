@@ -37,7 +37,7 @@ export class DataService {
   }
 
   getMap(){
-    return this.map
+    return colorData
   }
 
   private createMap(array: any[]) {
