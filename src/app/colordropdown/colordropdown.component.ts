@@ -9,6 +9,7 @@ import { DataService } from './../services/data.service'
 })
 export class ColordropdownComponent implements OnInit {
   colorList: any = []
+  selectedColor: string = ""
 
   constructor(private data:DataService) {
 
@@ -24,6 +25,10 @@ export class ColordropdownComponent implements OnInit {
 	    let y = b.displayName.toLowerCase();
       return x.localeCompare(y)
     })
+  }
+
+  filterColor() {
+    console.log(this.selectedColor)
   }
 
 }
