@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './../services/data.service'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ export class ColordropdownComponent implements OnInit {
   colorList: any = []
   selectedColor: string = ""
 
-  constructor(private data:DataService) {
+  constructor(private data:DataService, private router: Router) {
 
 
 
@@ -29,6 +30,7 @@ export class ColordropdownComponent implements OnInit {
 
   filterColor() {
     console.log(this.selectedColor)
+    this.router.navigate( [this.selectedColor] );
   }
 
 }

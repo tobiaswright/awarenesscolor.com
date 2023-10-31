@@ -5,12 +5,12 @@ import { ColorListComponent } from './color-list/color-list.component';
 
 const routes: Routes = [
   { path: '', component: ColorListComponent },
-  { path: 'color', component: ColorPageComponent },
+  { path: ':name', component: ColorPageComponent },
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -3,13 +3,13 @@
         [(ngModel)]="selectedColor"
         class="form-select form-select-sm mb-3"
         (change)="filterColor()"
-    >
+            >
         <option value="">Navigate by color</option>
-        <option *ngFor="let item of colorList" [ngValue]="item">
+        <option *ngFor="let item of colorList" [ngValue]="item.name">
             {{item.displayName}}
         </option>
     </select>
 </div>
 
 <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">PAGE!</a>
-<a routerLink="color" routerLinkActive="active" ariaCurrentWhenActive="page">PAGE!</a>
+<a [routerLink]="['/', 'red']" routerLinkActive="active" ariaCurrentWhenActive="page">PAGE!</a>
