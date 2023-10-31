@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ColordropdownComponent } from './colordropdown/colordropdown.component';
+import { ColorPageComponent } from './color-page/color-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ColordropdownComponent } from './colordropdown/colordropdown.component'
     FilterPipe,
     FooterComponent,
     HeaderComponent,
-    ColordropdownComponent
+    ColordropdownComponent,
+    ColorPageComponent
   ],
   imports: [
     BrowserModule,
