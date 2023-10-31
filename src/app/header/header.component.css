@@ -15,3 +15,7 @@ header {
     padding: 1em;
     background-color: #fff
 }
+
+a {
+    text-decoration: none;
+}
