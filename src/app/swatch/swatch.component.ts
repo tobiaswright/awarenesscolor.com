@@ -7,12 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SwatchComponent implements OnInit {
   @Input()
-  colorData!: {
-    displayName: string | null;
-    htmlName: string | null;
-    hexCode: string | null;
-    class: string | null;
-  };
+  colorData: {
+    displayName: string;
+    htmlName: string | string [];
+    hexCode: string | string [];
+    multi: boolean
+  } = {
+    displayName: '',
+    htmlName: '',
+    hexCode: '',
+    multi: false
+  }
   constructor() { }
 
   ngOnInit(): void {
