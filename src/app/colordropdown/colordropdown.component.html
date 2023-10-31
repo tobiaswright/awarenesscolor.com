@@ -1,18 +1,12 @@
-                        <!-- <label>Sort by color:</label>
-                        <select type="text" name="fname" class="form-control"  placeholder="Job Status" >
-                                <option value="">Select Status</option>
-                                <option class="btn btn-success"  value="Working">Working</option>
-                                <option class="btn btn-warning"  value="In Proccess">In Proccess</option>
-                                <option class="btn btn-danger" value="Closed">Closed</option>
-                        </select> -->
-<label>Sort by color: </label>
-<select
-    [(ngModel)]="selectedColor"
-    class="custom-select mb-3"
-    (change)="filterColor()"
->
-    <option value="">Filter by color</option>
-    <option *ngFor="let item of colorList" [ngValue]="item">
-        {{item.displayName}}
-    </option>
-</select>
+<div class="float-end">
+    <select
+        [(ngModel)]="selectedColor"
+        class="form-select form-select-sm mb-3"
+        (change)="filterColor()"
+    >
+        <option value="">Navigate by color</option>
+        <option *ngFor="let item of colorList" [ngValue]="item">
+            {{item.displayName}}
+        </option>
+    </select>
+</div>

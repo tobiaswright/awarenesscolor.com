@@ -1,8 +1,6 @@
 
 <input class="form-control form-control-lg" type="text" placeholder="Filter causes" aria-label=".form-control-lg example" [(ngModel)]="filterBy">
 
-<app-colordropdown></app-colordropdown>
-
 <div class="row">
     <div class="col-4 swatches" [title]="item.causeFull" *ngFor ="let item of list | filter: filterBy: 'cause'">
         <app-swatch [colorData]="item.colorData"></app-swatch>
