@@ -1,12 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
 import { DataService } from './../services/data.service';
-import { ColorMap } from '../color-map.model';
-
-interface colorShapeo {
-  cause: string,
-  htmlcolor: string,
-  colorData: ColorMap
- }[]
 
 @Component({
   selector: 'app-color-list',
@@ -17,7 +10,6 @@ interface colorShapeo {
 export class ColorListComponent implements OnInit {
   list: any[] = [];
   filterBy: any;
-   
 
   constructor(private data: DataService) { }
 

@@ -1,4 +1,5 @@
 import { Injectable, } from '@angular/core';
+import { ColorData } from '../color-data.model';
 import data from '../../assets/data.json';
 import { ColorMap } from '../color-map.model';
 import colorMap from '../../assets/color-map.json';
@@ -8,9 +9,8 @@ import colorMap from '../../assets/color-map.json';
   providedIn: 'root'
 })
 export class DataService {
-  newdata
-  map
-  data = data
+  combinedColorData: ColorData[];
+  colorData: ColorData[] = data;
   colorMap: ColorMap[] = colorMap
 
   constructor() {
@@ -19,29 +19,29 @@ export class DataService {
     // this.data = this.data.sort
 
     //copies the data?
-    let sortedData = this.data.slice(0);
+    let sortedColorData = this.colorData.slice(0);
    
-    sortedData.sort(function(a,b) {
+    sortedColorData.sort(function(a,b) {
 	    let x = a.cause.toLowerCase();
 	    let y = b.cause.toLowerCase();
       return x.localeCompare(y)
     });
 
-    this.map = this.createMap(colorMap);
+    let map = this.createMap(colorMap);
 
-    this.newdata = this.combineData(sortedData, this.map);
+    this.combinedColorData = this.combineData(sortedColorData, map);
   }
 
 
   getList(){
-    return this.newdata
+    return this.combinedColorData
   }
 
   getMap(){
     return colorMap
   }
 
-  private createMap(array: any[]) {
+  private createMap(array: ColorMap[]) {
     let map = new Map()
     array.forEach(item => {
       map.set(item.name, {...item})
@@ -49,19 +49,17 @@ export class DataService {
     return map
   }
 
-  private combineData(data: any[], map: Map<any, any>) {
-   let combinedData =  data.map( (item) => {
+  private combineData(data: ColorData[], map: Map<any, any>) {
+   return data.map( (item) => {
       let colorArry = item.htmlcolor.split(",")
        return {
         ...item,
         colorData: this.buildColorData(colorArry, map)
       }
     })
-
-    return combinedData
   }
 
-  private buildColorData( item: any[string], map: { get: (arg0: any) => { (): any; new(): any; displayName: string; hexCode: any; }; } ) {
+  private buildColorData( item: string[], map: Map<any, any> ) {
     let displayName = "";
     let hexCode = [];
 
