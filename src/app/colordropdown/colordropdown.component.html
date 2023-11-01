@@ -5,7 +5,7 @@
         (change)="filterColor()"
             >
         <option value="">Navigate by color</option>
-        <option *ngFor="let item of colorList" [ngValue]="item.name">
+        <option *ngFor="let item of colorMap" [ngValue]="item.name">
             {{item.displayName}}
         </option>
     </select>

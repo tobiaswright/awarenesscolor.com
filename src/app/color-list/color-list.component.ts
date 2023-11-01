@@ -1,14 +1,11 @@
 import { Component, OnInit  } from '@angular/core';
-import { DataService } from './../services/data.service'
+import { DataService } from './../services/data.service';
+import { ColorMap } from '../color-map.model';
 
 interface colorShapeo {
   cause: string,
   htmlcolor: string,
-  colorData: {
-   displayName: string | null,
-   htmlName: string | null,
-   hexCode: string | null,
-   class: string | null}
+  colorData: ColorMap
  }[]
 
 @Component({
@@ -28,7 +25,6 @@ export class ColorListComponent implements OnInit {
     this.list = this.data.getList();
     this.AddToolTips();
     this.truncateLongNames();
-    
   }
 
   private truncateLongNames() {
@@ -41,12 +37,9 @@ export class ColorListComponent implements OnInit {
 
   private AddToolTips() {
     this.list.forEach( item => {
-    if ( item.causeFull === "") {
-      item.causeFull = item.cause
-    }
-  })
+      if ( item.causeFull === "") {
+        item.causeFull = item.cause
+      }
+    })
   }
-
-  
-
 }

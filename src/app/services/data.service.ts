@@ -1,6 +1,7 @@
 import { Injectable, } from '@angular/core';
-import data from '../../assets/data.json'
-import colorData from '../../assets/color-map.json'
+import data from '../../assets/data.json';
+import { ColorMap } from '../color-map.model';
+import colorMap from '../../assets/color-map.json';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ export class DataService {
   newdata
   map
   data = data
-  colorData = colorData
+  colorMap: ColorMap[] = colorMap
 
   constructor() {
 
@@ -26,7 +27,7 @@ export class DataService {
       return x.localeCompare(y)
     });
 
-    this.map = this.createMap(colorData);
+    this.map = this.createMap(colorMap);
 
     this.newdata = this.combineData(sortedData, this.map);
   }
@@ -37,7 +38,7 @@ export class DataService {
   }
 
   getMap(){
-    return colorData
+    return colorMap
   }
 
   private createMap(array: any[]) {
