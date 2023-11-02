@@ -21,13 +21,9 @@ export class DataService {
     //copies the data?
     let sortedColorData = this.colorData.slice(0);
    
-    sortedColorData.sort(function(a,b) {
-	    let x = a.cause.toLowerCase();
-	    let y = b.cause.toLowerCase();
-      return x.localeCompare(y)
-    });
+    sortedColorData = this.sortList(sortedColorData, "cause")
 
-    let map = this.createMap(colorMap);
+    let map = this.createMap(  this.sortList(colorMap, "displayName" ));
 
     this.combinedColorData = this.combineData(sortedColorData, map);
   }
@@ -85,5 +81,13 @@ export class DataService {
       ...map.get(item[0]),
       multi:false
     }
+  }
+
+  private sortList( arr: any[], prop: string) {
+    return arr.sort( (a:any,b:any) => {
+      let x = a[prop].toLowerCase();
+	    let y = b[prop].toLowerCase();
+      return x.localeCompare(y)
+    })
   }
 }

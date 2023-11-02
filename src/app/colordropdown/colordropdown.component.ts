@@ -16,14 +16,7 @@ export class ColordropdownComponent implements OnInit {
   constructor(private data:DataService, private router: Router) {}
 
   ngOnInit(): void {
-    let map = this.data.getMap();
-
-    this.colorMap = map.sort( (a:any,b:any) => {
-      let x = a.displayName.toLowerCase();
-	    let y = b.displayName.toLowerCase();
-      return x.localeCompare(y)
-    })
-
+    this.colorMap  = this.data.getMap();
   }
 
   filterColor() {
