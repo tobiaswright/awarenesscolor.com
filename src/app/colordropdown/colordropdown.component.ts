@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from './../services/data.service'
 import { Router } from '@angular/router';
 import { ColorMap } from '../color-map.model';
@@ -9,6 +9,7 @@ import { ColorMap } from '../color-map.model';
   styleUrls: ['./colordropdown.component.css']
 })
 export class ColordropdownComponent implements OnInit {
+  @Input() colorData: ColorMap = {name: "", displayName:"",hexCode:""}
   colorMap: ColorMap[] = []
   selectedColor: string = ""
 
@@ -22,6 +23,7 @@ export class ColordropdownComponent implements OnInit {
 	    let y = b.displayName.toLowerCase();
       return x.localeCompare(y)
     })
+
   }
 
   filterColor() {

@@ -5,8 +5,10 @@
         (change)="filterColor()"
             >
         <option value="">Navigate by color</option>
-        <option *ngFor="let item of colorMap" [ngValue]="item.name">
-            {{item.displayName}}
-        </option>
+        <ng-container *ngFor="let item of colorMap">
+            <option  [ngValue]="item.name" [style.background-color]="item.hexCode">
+                {{item.displayName}}
+            </option>
+        </ng-container>
     </select>
 </div>

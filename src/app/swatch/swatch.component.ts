@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ColorMap } from '../color-map.model';
 
 @Component({
   selector: 'app-swatch',
@@ -6,18 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./swatch.component.css']
 })
 export class SwatchComponent implements OnInit {
-  @Input()
-  colorData: {
-    displayName: string;
-    htmlName: string | string [];
-    hexCode: string | string [];
-    multi: boolean
-  } = {
-    displayName: '',
-    htmlName: '',
-    hexCode: '',
-    multi: false
-  }
+  @Input() colorData: ColorMap = {name: "", displayName:"",hexCode:""}
   constructor() { }
 
   ngOnInit(): void {
