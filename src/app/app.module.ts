@@ -14,6 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ColordropdownComponent } from './colordropdown/colordropdown.component';
 import { ColorPageComponent } from './color-page/color-page.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ColorPageComponent } from './color-page/color-page.component';
     FooterComponent,
     HeaderComponent,
     ColordropdownComponent,
-    ColorPageComponent
+    ColorPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

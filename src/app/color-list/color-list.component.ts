@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, Input  } from '@angular/core';
 import { DataService } from './../services/data.service';
 
 @Component({
@@ -8,13 +8,14 @@ import { DataService } from './../services/data.service';
 })
 
 export class ColorListComponent implements OnInit {
+  @Input() colorList: any
   list: any[] = [];
   filterBy: any;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
-    this.list = this.data.getList();
+    this.list = this.colorList;
     this.AddToolTips();
     this.truncateLongNames();
   }
