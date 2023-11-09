@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from './../services/data.service';
+import { ColorData } from '../color-data.model';
 
 @Component({
   selector: 'app-color-page',
@@ -8,8 +9,9 @@ import { DataService } from './../services/data.service';
   styleUrls: ['./color-page.component.css']
 })
 export class ColorPageComponent implements OnInit {
-  list: any[] = [];
-  color = ""
+  list: ColorData[] = [];
+  title? = "";
+  color? = "";
 
   constructor(private router: Router, private data: DataService) {
 
@@ -23,9 +25,11 @@ export class ColorPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.list = this.filterList(this.data.getList());
+    this.title = this.list[0].colorData?.displayName
+    this.color = this.list[0].colorData?.name
   }
 
-  private filterList( arr: any[]) {
+  private filterList( arr: ColorData[]) {
     return arr.filter( ( item ) => item.htmlcolor === this.color)
   }
 
