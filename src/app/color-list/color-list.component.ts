@@ -1,5 +1,6 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import { DataService } from './../services/data.service';
+import { ColorData } from '../color-data.model';
 
 @Component({
   selector: 'app-color-list',
@@ -9,13 +10,15 @@ import { DataService } from './../services/data.service';
 
 export class ColorListComponent implements OnInit {
   @Input() colorList: any
+  @Input() isHome: any
   list: any[] = [];
   filterBy: any;
 
-  constructor(private data: DataService) { }
+  constructor() { }
 
   ngOnInit() {
     this.list = this.colorList;
+    console.log(this.isHome)
     this.AddToolTips();
     this.truncateLongNames();
   }
