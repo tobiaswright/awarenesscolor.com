@@ -12,6 +12,7 @@ export class ColorPageComponent implements OnInit {
   list: ColorData[] = [];
   title? = "";
   color? = "";
+  isValidColor = true
 
   constructor(private router: Router, private data: DataService) {
 
@@ -25,8 +26,14 @@ export class ColorPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.list = this.filterList(this.data.getList());
-    this.title = this.list[0].colorData?.displayName
-    this.color = this.list[0].colorData?.name
+
+    if (this.list.length > 0) {
+      this.title = this.list[0].colorData?.displayName
+      this.color = this.list[0].colorData?.name
+    } else {
+      this.isValidColor = false
+    }
+
   }
 
   private filterList( arr: ColorData[]) {

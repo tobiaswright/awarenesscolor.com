@@ -18,7 +18,6 @@ export class ColorListComponent implements OnInit {
 
   ngOnInit() {
     this.list = this.colorList;
-    console.log(this.isHome)
     this.AddToolTips();
     this.truncateLongNames();
   }

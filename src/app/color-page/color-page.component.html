@@ -1,3 +1,8 @@
-<h2 [style.color]= "color">{{title}}</h2>
 
-<app-color-list [colorList]="list" [isHome] = false></app-color-list>
+<ng-container *ngIf="isValidColor; else infoText">
+    <h2 [style.color]= "color">{{title}}</h2>
+    <app-color-list [colorList]="list" [isHome] = false></app-color-list>
+</ng-container>
+<ng-template #infoText>
+    <strong>This color does not exist.</strong>
+</ng-template>
