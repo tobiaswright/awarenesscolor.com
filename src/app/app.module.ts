@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { ColordropdownComponent } from './colordropdown/colordropdown.component';
 import { ColorPageComponent } from './color-page/color-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     HeaderComponent,
     ColordropdownComponent,
     ColorPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
