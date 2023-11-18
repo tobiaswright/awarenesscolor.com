@@ -1,6 +1,4 @@
 import { Component, OnInit, Input  } from '@angular/core';
-import { DataService } from './../services/data.service';
-import { ColorData } from '../color-data.model';
 
 @Component({
   selector: 'app-color-list',
