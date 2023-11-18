@@ -39,8 +39,7 @@ import { TruncateNamesPipe } from './truncate-names.pipe';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule,
-        TruncateNamesPipe
+        FormsModule
     ]
 })
 export class AppModule { }
