@@ -16,6 +16,7 @@ import { ColordropdownComponent } from './colordropdown/colordropdown.component'
 import { ColorPageComponent } from './color-page/color-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TruncateNamesPipe } from './truncate-names.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ColordropdownComponent,
     ColorPageComponent,
     HomePageComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TruncateNamesPipe
   ],
   imports: [
     BrowserModule,

@@ -17,15 +17,6 @@ export class ColorListComponent implements OnInit {
   ngOnInit() {
     this.list = this.colorList;
     this.AddToolTips();
-    this.truncateLongNames();
-  }
-
-  private truncateLongNames() {
-    this.list.forEach( item => {
-      if ( item.cause.length > 22 ) {
-        item.cause = item.cause.slice(0,22) + "..."
-      }
-    })
   }
 
   private AddToolTips() {

@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ColorCardComponent {
   @Input() cause:string = ""
-  @Input() displayName:string =""
+  @Input() colorName:string =""
   constructor() { }
 
 
