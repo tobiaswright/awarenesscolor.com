@@ -19,27 +19,28 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TruncateNamesPipe } from './truncate-names.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ColorCardComponent,
-    ColorListComponent,
-    SwatchComponent,
-    IntroComponent,
-    FilterPipe,
-    FooterComponent,
-    HeaderComponent,
-    ColordropdownComponent,
-    ColorPageComponent,
-    HomePageComponent,
-    NotFoundComponent,
-    TruncateNamesPipe
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule
-  ],
-  providers: [DataService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ColorCardComponent,
+        ColorListComponent,
+        SwatchComponent,
+        IntroComponent,
+        FilterPipe,
+        FooterComponent,
+        HeaderComponent,
+        ColordropdownComponent,
+        ColorPageComponent,
+        HomePageComponent,
+        NotFoundComponent,
+        TruncateNamesPipe
+    ],
+    providers: [DataService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        TruncateNamesPipe
+    ]
 })
 export class AppModule { }
