@@ -9,14 +9,18 @@ import { Component, OnInit, Input  } from '@angular/core';
 export class ColorListComponent implements OnInit {
   @Input() colorList: any
   @Input() isHome: any
+  @Input() title: any;
   list: any[] = [];
   filterBy: any;
+  
 
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit() {
     this.list = this.colorList;
     this.AddToolTips();
+    // this.title = this.colorList[0].htmlcolor
   }
 
   private AddToolTips() {
