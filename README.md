@@ -1,6 +1,6 @@
 # Color Awareness
 
-Welcome to [Awareness Color](https://wwww.awarenesscolor.com)
+Welcome to [Awareness Color](https://www.awarenesscolor.com)
 
 This is the frontend side project to play with angular.
 
