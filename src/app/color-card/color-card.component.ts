@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-color-card',
@@ -6,9 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./color-card.component.css']
 })
 export class ColorCardComponent {
-  @Input() cause:string = ""
-  @Input() colorName:string =""
+  cause = input<string>('');
+  colorName = input<string>('')
   constructor() { }
-
-
 }
