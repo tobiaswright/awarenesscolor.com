@@ -1,28 +1,21 @@
 import { Injectable, } from '@angular/core';
-import { ColorData } from '../color-data.model';
+import { ColorData, ColorMap } from '../color-data.model';
 import data from '../../assets/data.json';
-import { ColorMap } from '../color-map.model';
 import colorMap from '../../assets/color-map.json';
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  combinedColorData: ColorData[];
-  colorData: any[] = data;
-  colorMap: {"name":string,"displayName":string,"hexCode":string}[] = colorMap
+  private combinedColorData: ColorData[];
+  // private colorData = data;
 
   constructor() {
-
     //think about create this in to a service
     // this.data = this.data.sort
-
     //copies the data?
-    let sortedColorData = this.colorData.slice(0);
-   
-    sortedColorData = this.sortList(sortedColorData, "cause")
-
+    // let colorDataCopy = this.colorData.slice(0);
+    let sortedColorData = this.sortList(data, "cause");
     let map = this.createMap(  this.sortList(colorMap, "displayName" ));
 
     this.combinedColorData = this.combineData(sortedColorData, map);
@@ -38,16 +31,21 @@ export class DataService {
   }
 
   private createMap(array: ColorMap[]) {
-    let map = new Map()
+    let map = new Map();
     array.forEach(item => {
-      map.set(item.name, {...item})
+      map.set(item.name, {...item});
     })
     return map
   }
 
-  private combineData(data: ColorData[], map: Map<string, string>) {
+  private combineData(data: any[], map: Map<string, ColorMap>) {
    return data.map( (item) => {
-      let colorArry = item.htmlcolor.split(",")
+      let colorArry = item.colorData.htmlcolor.split(",");
+
+      if ( item.causeFull === "") {
+        item.causeFull = item.cause;
+      }
+
        return {
         ...item,
         id: Math.random(),
@@ -68,6 +66,7 @@ export class DataService {
         if ( item.length - 1 > i) {
           displayName += ", "
         }
+
       }
 
       return {

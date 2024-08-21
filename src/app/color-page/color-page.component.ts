@@ -10,8 +10,8 @@ import { ColorData } from '../color-data.model';
 })
 export class ColorPageComponent implements OnInit {
   list: ColorData[] = [];
-  title? = "";
-  color? = "";
+  title = "";
+  color = "";
   isValidColor = true
 
   constructor(private router: Router, private data: DataService) {
@@ -25,9 +25,7 @@ export class ColorPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.list = this.filterList(this.data.getList());
-
-    console.log(this.list, "allo")
+    this.list = this.data.getList()
 
     if (this.list.length > 0) {
       this.title = this.list[0].colorData?.displayName
@@ -39,7 +37,7 @@ export class ColorPageComponent implements OnInit {
   }
 
   private filterList( arr: ColorData[]) {
-    return arr.filter( ( item ) => item.htmlcolor === this.color)
+    return arr.filter( ( item ) => item.colorData.htmlcolor === this.color)
   }
 
 }

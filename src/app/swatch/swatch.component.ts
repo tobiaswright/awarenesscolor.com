@@ -9,9 +9,14 @@ import { ColorMap } from '../color-map.model';
 export class SwatchComponent {
   colorData = input.required<any>();
 
-  calculateStyles(item: { multi: boolean; hexCode: any; } ) {
-    console.log(item, "pppp")
+  constructor() {
+    console.log(this.colorData)
+  }
+
+  calculateStyles(item: any ) {
+    // console.log(item, "pppp")
     if (item.multi) {
+      console.log( typeof(item.hexCode))
       let gradient = item.hexCode.reduce( (acc: string, curr: string) => {
         return acc + "," + curr
       })

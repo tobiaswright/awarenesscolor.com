@@ -2,11 +2,11 @@
     aria-label=".form-control-lg example" [(ngModel)]="filterBy">
 
 @if(!isHome()) {
-<h2>{{ title() }}</h2>
+    <h2>{{ title() }}</h2>
 }
 
 <div class="row">
-    @for ( item of colorList(); track item.id ) { 
+    @for ( item of list; track item.id ) { 
         <div class="col-4 swatches" [title]="item.causeFull">
             <app-swatch [colorData]="item.colorData" />
             <app-color-card [cause]="item.cause" [colorName]="item.colorData!.displayName" />
