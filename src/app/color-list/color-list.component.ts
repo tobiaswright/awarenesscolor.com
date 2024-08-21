@@ -1,30 +1,25 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, input  } from '@angular/core';
+import { ColorData } from '../color-data.model';
 
 @Component({
   selector: 'app-color-list',
   templateUrl: './color-list.component.html',
-  styleUrls: ['./color-list.component.css']
+  styleUrls: ['./color-list.component.css'],
 })
 
 export class ColorListComponent implements OnInit {
-  @Input() colorList: any
-  @Input() isHome: any
-  @Input() title: any;
-  list: any[] = [];
-  filterBy: any;
-  
-
-
-  constructor() {}
+  colorList = input.required<ColorData[]>();
+  isHome = input<boolean>();
+  title = input<string>();
+  filterBy: string = "";
 
   ngOnInit() {
-    this.list = this.colorList;
+    console.log( this.colorList(),  "hello")
     this.AddToolTips();
-    // this.title = this.colorList[0].htmlcolor
   }
 
   private AddToolTips() {
-    this.list.forEach( item => {
+    this.colorList().forEach( item => {
       if ( item.causeFull === "") {
         item.causeFull = item.cause
       }

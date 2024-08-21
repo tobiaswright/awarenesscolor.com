@@ -6,7 +6,7 @@ import { Component, input } from '@angular/core';
   styleUrls: ['./color-card.component.css']
 })
 export class ColorCardComponent {
-  cause = input<string>('');
-  colorName = input<string>('')
+  cause = input.required<string>();
+  colorName = input.required<string>()
   constructor() { }
 }

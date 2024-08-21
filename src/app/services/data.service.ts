@@ -10,8 +10,8 @@ import colorMap from '../../assets/color-map.json';
 })
 export class DataService {
   combinedColorData: ColorData[];
-  colorData: ColorData[] = data;
-  colorMap: ColorMap[] = colorMap
+  colorData: any[] = data;
+  colorMap: {"name":string,"displayName":string,"hexCode":string}[] = colorMap
 
   constructor() {
 
@@ -45,11 +45,12 @@ export class DataService {
     return map
   }
 
-  private combineData(data: ColorData[], map: Map<any, any>) {
+  private combineData(data: ColorData[], map: Map<string, string>) {
    return data.map( (item) => {
       let colorArry = item.htmlcolor.split(",")
        return {
         ...item,
+        id: Math.random(),
         colorData: this.buildColorData(colorArry, map)
       }
     })

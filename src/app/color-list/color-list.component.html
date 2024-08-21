@@ -1,9 +1,21 @@
-<input  class="form-control form-control-lg" type="text" placeholder="Filter causes" aria-label=".form-control-lg example" [(ngModel)]="filterBy">
+<input class="form-control form-control-lg" type="text" placeholder="Filter causes"
+    aria-label=".form-control-lg example" [(ngModel)]="filterBy">
 
-<h2 *ngIf="!isHome">{{title}}</h2>
+@if(!isHome()) {
+<h2>{{ title() }}</h2>
+}
+
 <div class="row">
-    <div class="col-4 swatches" [title]="item.causeFull" *ngFor ="let item of list | filter: filterBy: 'cause'">
+    @for ( item of colorList(); track item.id ) { 
+        <div class="col-4 swatches" [title]="item.causeFull">
+            <app-swatch [colorData]="item.colorData" />
+            <app-color-card [cause]="item.cause" [colorName]="item.colorData!.displayName" />
+        </div>
+    }
+
+
+    <!-- <div class="col-4 swatches" [title]="item.causeFull" *ngFor="let item of colorList() | filter: filterBy: 'cause'">
         <app-swatch [colorData]="item.colorData"></app-swatch>
         <app-color-card [cause]="item.cause" [colorName]="item.colorData.displayName"></app-color-card>
-    </div>   
+    </div> -->
 </div>
