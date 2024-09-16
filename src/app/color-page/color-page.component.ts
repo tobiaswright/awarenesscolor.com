@@ -25,7 +25,7 @@ export class ColorPageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.list = this.data.getList()
+    this.list = this.filterList(this.data.getList());
 
     if (this.list.length > 0) {
       this.title = this.list[0].colorData?.displayName
